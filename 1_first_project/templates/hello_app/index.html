@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hello App</title>
+        <link rel = 'stylesheet' href="{% static 'css/style.css' %}"/>
+    </head>
+    <body>
+        <h1>Learning Django</h1>
+        <p>I am coding away and understanding more and more about how django works.  However, I can't say that my setup looks as nice as the picture below.</p>
+        <img src = "{% static 'images/computer.jpeg' %}", alt = 'image not found'>
+        <h3>{{ templatevar1 }}</h3>
+        <h2>Sample Model of Access Records</h2>
+        <p>The following table of access records was generated using the Faker package for demonstration purposes.</p>
+        <div class="records">
+            {% if access_records %}
+                <table>
+                    <thead>
+                        <th>Site Name</th>
+                        <th>Date Accessed</th>
+                    </thead>
+
+                    {% for i in access_records %}
+                        <tr>
+                            <td>{{ i.name }}</td>
+                            <td>{{ i.date }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>NO ACCESS RECORDS FOUND</p>
+            {% endif %}
+        </div>
+    </body>
+</html>

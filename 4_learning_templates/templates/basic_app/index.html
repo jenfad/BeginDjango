@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+{% extends 'basic_app/base.html' %}
+{% load extras %}
+    {% block body_block %}
+        <h1>Welcome!</h1>
+        <p>{{ text|upper }}</p>
+        <p>{{ text|cut2:'world' }}</p>
+        <p>{{ number|add:'99' }}</p>
+    {% endblock %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Users</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    </head>
+    <body>
+    <h1>Users</h1>
+    <p>The first 20 users listed below were generated using Faker.</p>
+    <p>Please go to /form to add another user</p>
+
+        {% if users %}
+            <ol>
+                {% for u in users %}
+                    <li>User Info</li>
+                    <ul>
+                        <li>First Name: {{ u.first_name }}</li>
+                        <li>Last Name: {{ u.last_name }}</li>
+                        <li>Email: {{ u.email }}</li>
+                    </ul>
+
+                {% endfor %}
+            </ol>
+
+        {% else %}
+            <p>No Users Found</p>
+        {% endif %}
+    </body>
+</html>
